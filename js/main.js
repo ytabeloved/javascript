@@ -1,33 +1,19 @@
 
-/*primera consigna */
-let num = prompt("Ingresa un numero")
-
-
-if (num > 1000) {
-    alert("Este numero es mayor 1000");
-} else if (num == 1000) {
-    alert("Este numero es 1000");
-} else {
-    alert("este numero es menor que 1000");
-}
-
-/*segunda consigna */
-let text=prompt("Ingrese su texto: ");
-let upp=text.toLocaleUpperCase();
-
-if (upp=="HOLA"){
-    alert("Hola!! gracias por saludar!");
-}else{
-    alert("que grosero!, al menos di hola!");
-}
-
-/*tercera consigna */
-let numB=prompt("Ingrese un numero ")
-
-if(numB>10 && numB < 50){
-    alert("este numero esta entre 10 y 50");
-}else if(numB < 10){
-    alert("este numero es menor que 10");
-}else{
-    alert("este numero es mayor que 50");
+/*LOOPS */
+let num=parseInt(prompt("ingrese un numero para este loop que correra solo 10 veces"));
+let i=0;
+let resultado=0;
+/*cuerpo del loop */
+while (i<10){
+    if(i!=9){
+    resultado =resultado+num;
+    alert("la suma es "+ resultado)
+    num=parseInt(prompt("Agregue un numero para el loop que correra "+ (-i+9)+" veces"));
+    i++;}
+    else{
+        resultado =resultado+num;
+        alert("la suma es "+ resultado)
+        alert("no puedes agregar mas numeros")
+        i++;
+    }
 }
