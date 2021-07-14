@@ -1,21 +1,36 @@
-/*desafio 4 principio de app*/
+/*desafio 5 objetos */
+class Prestamo {
+    constructor (amount, cuota, interes) { //constructor del objeto prestamo
+        this.amount = parseInt(amount);
+        this.cuota = parseInt(cuota);
+        this.interes = parseInt(interes);
+    }
+    calculoPrestamo(){
+        'su cuota quedaria en: $' + pagos(this.amount, this.cuota, tasa(this.interes));
+    }
+}
 
-let amount= parseInt(prompt('monto a pedir prestado: '));//define monto a pedir
-let cuota= parseInt(prompt('en cuantas cuotas? : '));//define cuotas
-let interes= parseInt(prompt('a que tasa de interes? (solo ingrese un numero entero): '));// define interes
 
-let tasa= function (interes){//convierte interes en porcentaje
-    let perc=interes/100
+
+
+
+/*creacion de objeto*/
+
+let prestamo1 = new Prestamo(prompt('monto a pedir prestado: '), prompt('en cuantas cuotas? : '), prompt('a que tasa de interes? (solo ingrese un numero entero): '));
+
+/*funciones del simulador  */
+let tasa = function (interes) { //convierte interes en porcentaje
+    let perc = prestamo1.interes / 100;
     return perc;
 }
 
-function pagos(amount, cuota, tasa){//calcula el monto a pagar x cuota
-    let pagos=(((amount*tasa)+amount)/cuota);
+function pagos(amount, cuota, tasa) { //calcula el monto a pagar x cuota
+    let pagos = (((prestamo1.amount * prestamo1.tasa) + prestamo1.amount) / prestamo1.cuota);
     return pagos;
 }
 
-console.log(amount);//control de valores
-console.log(cuota);
-console.log(tasa(interes));
-alert('su cuota quedaria en: $' + pagos(amount, cuota, tasa(interes)));//llamada de la funcion
-
+/*llamadas */
+console.log(prestamo1.amount); //control de valores
+console.log(prestamo1.cuota);
+console.log(tasa(prestamo1.interes));
+alert(persona.calculoPrestamo()); //llamada del metodo
