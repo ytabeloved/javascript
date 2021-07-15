@@ -1,13 +1,17 @@
 /*desafio 5 objetos */
 class Prestamo {
-    constructor (amount, cuota, interes) { //constructor del objeto prestamo
-        this.amount = parseInt(amount);
-        this.cuota = parseInt(cuota);
-        this.interes = parseInt(interes);
+    constructor(amount, cuota, interes, pagos) { //constructor del objeto prestamo
+        this.amount = parseFloat(amount);
+        this.cuota = parseFloat(cuota);
+        this.interes = parseFloat(interes);
+        this.pagos = parseFloat(pagos);
+       
     }
     calculoPrestamo(){
-        'su cuota quedaria en: $' + pagos(this.amount, this.cuota, tasa(this.interes));
+        this.pagos = pagos(this.amount, this.cuota);
+        return this.pagos;
     }
+   
 }
 
 
@@ -16,21 +20,28 @@ class Prestamo {
 
 /*creacion de objeto*/
 
-let prestamo1 = new Prestamo(prompt('monto a pedir prestado: '), prompt('en cuantas cuotas? : '), prompt('a que tasa de interes? (solo ingrese un numero entero): '));
+let prestamo1 = new Prestamo(prompt('monto a pedir prestado: ') , prompt('en cuantas cuotas? : '), prompt('a que tasa de interes? (solo ingrese un numero entero): ') );
 
 /*funciones del simulador  */
-let tasa = function (interes) { //convierte interes en porcentaje
+
+function tasa(interes) { //convierte interes en porcentaje
     let perc = prestamo1.interes / 100;
-    return perc;
+   // console.log(perc);
+    return perc;  
 }
 
-function pagos(amount, cuota, tasa) { //calcula el monto a pagar x cuota
-    let pagos = (((prestamo1.amount * prestamo1.tasa) + prestamo1.amount) / prestamo1.cuota);
+let pagos = function (amount, cuota) { //calcula el monto a pagar x cuota
+    let pagos = ((prestamo1.amount * tasa(prestamo1.interes))+prestamo1.amount)/ prestamo1.cuota;
     return pagos;
 }
 
-/*llamadas */
-console.log(prestamo1.amount); //control de valores
-console.log(prestamo1.cuota);
+/*llamadas de consola para control*/
+//console.log(prestamo1.amount); //control de valores
+//console.log(prestamo1.cuota);
+console.log(prestamo1.calculoPrestamo());
 console.log(tasa(prestamo1.interes));
-alert(persona.calculoPrestamo()); //llamada del metodo
+console.log(pagos(prestamo1.amount, prestamo1.cuota, tasa(prestamo1.interes)));
+//console.log('tu monto a pagar es: $ ' + pagos(prestamo1.amount, prestamo1.cuota, tasa(prestamo1.interes)));
+
+
+alert('su cuota quedaria en: $' + prestamo1.calculoPrestamo()); //llamada del metodo
