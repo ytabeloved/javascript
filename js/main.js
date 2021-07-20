@@ -72,3 +72,4 @@ if (isNaN(resultado)) {
         client1[0, 1] + " cuotas, " + "con una tasa de: " + client1[0, 2] + "%")
 
 }
+
